@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:56:53 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 02:07:39 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 02:23:10 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_strncmp(const char	*s1, const char	*s2, size_t	n)
 {
 	size_t	i;
-	char	*new_s1;
-	char	*new_s2;
+	unsigned char	*new_s1;
+	unsigned char	*new_s2;
 	
 	i = 0;
 	new_s1 = (unsigned char *)s1;
