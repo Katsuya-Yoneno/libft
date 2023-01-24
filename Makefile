@@ -6,7 +6,7 @@
 #    By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 15:16:01 by kyoneno           #+#    #+#              #
-#    Updated: 2023/01/23 00:23:46 by kyoneno          ###   ########.fr        #
+#    Updated: 2023/01/24 22:22:12 by kyoneno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,5 @@ clean:
 
 fclean:	clean
 		rm -f $(NAME)
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 re:	fclean all

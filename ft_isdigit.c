@@ -6,11 +6,13 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:25:27 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/09 22:27:58 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/24 22:46:23 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char *str)
+#include "libft.h"
+
+int	ft_isdigit(char	*str)
 {
 	int	i;
 	int	res;
