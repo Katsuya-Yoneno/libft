@@ -6,106 +6,92 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 00:07:56 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/12 19:53:44 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/24 23:12:32 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	judge(char str, char *charset)
+static int	ft_num_char(int k, char const *s, char c)
 {
-	int	i;
+	int	count;
+	int	words;
+	int	tot;
 
-	i = 0;
-	if (str == '\0')
-		return (1);
-	while (charset[i])
+	count = 0;
+	tot = 0;
+	while (tot <= k && s[count])
 	{
-		if (str == charset[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	*make_src(char *from, char *charset)
-{
-	int		i;
-	char	*src;
-	int		srclen;
-	char	*f1;
-
-	srclen = 0;
-	f1 = from;
-	while (judge(*f1, charset) == 0)
-	{
-		f1++;
-		srclen++;
-	}
-	i = 0;
-	src = (char *)malloc(sizeof(char) * (srclen + 1));
-	while (judge(from[i], charset) == 0)
-	{
-		src[i] = from[i];
-		i++;
-	}
-	src[i] = '\0';
-	return (src);
-}
-
-void	judge_false(char **str, char **from, int *i, char **res)
-{
-	if (*str)
-		(*str)++;
-	if (**str == '\0')
-	{
-		res[*i] = make_src(*from, *str);
-		(*i)++;
-	}
-}
-
-void	put_res(char **res, char *str, char *charset)
-{
-	char	*from;
-	int		i;
-
-	from = str;
-	i = 0;
-	while (*str != '\0')
-	{
-		if (judge(*str, charset) == 1 && (str - from > 0))
+		words = 0;
+		while (s[count] == c && s[count])
+			count++;
+		while (s[count] != c && s[count])
 		{
-			res[i] = make_src(from, charset);
-			str++;
-			from = str;
+			words++;
+			count++;
+		}
+		tot++;
+	}
+	return (words);
+}
+
+static int	ft_num_col(char const *s, char c)
+{
+	int	count;
+	int	num_col;
+
+	count = 0;
+	num_col = 0;
+	while (s[count])
+	{
+		if (s[count] == c && s[count + 1] != c)
+			num_col++;
+		count++;
+	}
+	num_col++;
+	return (num_col);
+}
+
+static char	**ft_add_value(int i, char c, char *s, char **split)
+{
+	int	j;
+	int	k;
+	int	row;
+
+	k = 0;
+	while (s[i] == c && s[i])
+		i++;
+	while (s[i])
+	{
+		j = 0;
+		row = ft_num_char(k, s, c);
+		split[k] = (char *)malloc(sizeof(char) * (row + 1));
+		if (!split[k])
+			return (0);
+		while (s[i] != c && s[i])
+			split[k][j++] = s[i++];
+		while (s[i] == c && s[i])
 			i++;
-		}
-		else if (judge(*str, charset) == 1 && (str - from <= 0))
-		{
-			str++;
-			from = str;
-		}
-		else
-			judge_false(&str, &from, &i, res);
+		split[k][j] = '\0';
+		k++;
 	}
-	res[i] = NULL;
+	split[k] = NULL;
+	return (split);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *s, char c)
 {
-	int		nb_of_splits;
-	char	**res;
+	char	**split;
 	int		i;
+	int		cols;
 
 	i = 0;
-	nb_of_splits = 0;
-	while (str[i])
-	{
-		if (judge(str[i], charset) == 0 && judge(str[i + 1], charset) == 1)
-			nb_of_splits++;
-		i++;
-	}
-	res = (char **)malloc(sizeof(char *) * (nb_of_splits + 1));
-	put_res(res, str, charset);
-	return (res);
+	if (!s)
+		return (0);
+	cols = ft_num_col(s, c);
+	split = (char **)malloc(sizeof(char *) * (cols + 1));
+	if (!split)
+		return (0);
+	split = ft_add_value(i, c, (char *)s, split);
+	return (split);
 }

@@ -4,8 +4,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
-int		ft_isalpha(char *str);
-int		ft_isdigit(char *str);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
@@ -29,7 +29,7 @@ int		ft_strncmp(char	*s1, char	*s2, unsigned int	n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *src);
 char	*ft_strtrim(char const	*s1, char const *set);
-char	**ft_split(char *str, char *charset);
+char	**ft_split(char const *str, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const	*s, char (*f)(unsigned int, char));
 void	ft_striteri(char	*s, void(*f)(unsigned int, char*));
