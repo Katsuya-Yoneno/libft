@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:28:33 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/24 23:26:29 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 02:06:53 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ int	ft_isalnum(int c)
 	int	res;
 
 	if ('0' <= c && c <= '9')
-		res = c;
+		return (1);
 	else if ('A' <= c && c <= 'Z')
-		res = c;
+		return (1);
 	else if ('Z' <= c && c <= 'z')
-		res = c;
+		return (1);
 	else
 		return (0);
-	return (res);
 }
