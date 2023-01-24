@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:55:30 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/10 23:41:05 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 00:06:13 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0')
+	while (*s != (char)c)
 	{
-		if (*s == c)
-			return ((char *)s);
+		if (*s == '\0')
+			return (0);
 		else
 			s++;
 	}
-	return (0);
+	return ((char *)s);
 }

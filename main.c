@@ -6,6 +6,6 @@ char func(unsigned int i, char c){
 }
 
 int main(void){
-	printf("%d", ft_isalpha('a'));
+	printf("%d",*ft_strchr("sss", 0));
 	return 0;
 }

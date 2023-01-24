@@ -6,23 +6,31 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:56:53 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/09 22:58:29 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 00:34:13 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char	*s1, char	*s2, unsigned int	n)
-{
-	unsigned int	i;
+#include "libft.h"
 
+int	ft_strncmp(const char	*s1, const char	*s2, size_t	n)
+{
+	size_t	i;
+	char	*new_s1;
+	char	*new_s2;
+	
 	i = 0;
+	new_s1 = (char *)s1;
+	new_s2 = (char *)s2;
 	if (n == 0)
 		return (0);
-	while (i < n - 1 && s1[i] != '\0' && s2[i] != '\0')
+	while (i < n && new_s1[i] != '\0' && new_s2[i] != '\0')
 	{
-		if (s1[i] == s2[i])
+		if (new_s1[i] == new_s2[i])
 			i++;
 		else
-			return (s1[i] - s2[i]);
+			return (new_s1[i] - new_s2[i]);
 	}
-	return (s1[i] - s2[i]);
+	if (i < n)
+		return (new_s1[i] - new_s2[i]);
+	return (0);
 }
