@@ -1,10 +1,11 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-#define SIZE_MAX __SIZE_MAX__
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <stdint.h>
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
