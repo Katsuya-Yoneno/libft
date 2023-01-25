@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:41:37 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 18:11:53 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 18:52:18 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t			i;
 
 	// オーバーフローの場合はnullを返す
-	if (nmemb > SIZE_MAX/sizeof(long))
+	if (nmemb * size * sizeof(long) > SIZE_MAX)
 		return (0);
 	all = nmemb * size;
 	ptr = malloc(all);
