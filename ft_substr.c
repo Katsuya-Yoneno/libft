@@ -6,27 +6,35 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:56:16 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/10 00:22:50 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 20:02:37 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//s[start]からlenの長さだけ切り取った文字列を返す関数
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t		length;
-	char	*cut_str;
+	char		*sub_str;
 	size_t		i;
+	size_t		j;
 
-	length = len - start + 1;
-	cut_str = malloc(length + 1);
-	if (cut_str == NULL)
+	sub_str = (char *)malloc((len + 1) * sizeof(*s));
+	if (!sub_str)
 		return (0);
 	i = 0;
-	while (i < len)
+	j = 0;
+	while (s[i])
 	{
-		cut_str[i] = s[start + i];
+		// startの位置までsを進める
+		//lenの長さだけs[start]からコピー
+		if (i >= start && j < len)
+		{
+			sub_str[j] = s[i];
+			j++;
+		}
 		i++;
 	}
-	return (cut_str);
+	sub_str[j] = '\0';
+	return (sub_str);
 }
