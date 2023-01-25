@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 20:26:22 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 22:30:38 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 22:35:04 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strmapi(char const	*s, char (*f)(unsigned int, char))
 	while (s[i])
 	{
 		res[i] = f(i, s[i]);
-		i--;
+		i++;
 	}
 	res[i] = '\0';
 	return (res);
