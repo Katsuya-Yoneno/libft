@@ -6,31 +6,39 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:51:28 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/10 00:14:41 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 23:21:26 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+//srcをsize - strlen(dst) - 1バイト文字分dstの末尾に追記null止めする関数。
+//sizeにdstのサイズ以上を指定すればバッファオーバーランしない。
+//連結後の文字列の長さを返す。
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	d_len;
 	size_t	s_len;
 	size_t	i;
-	size_t	limit;
+	size_t	j;
 
 	d_len = ft_strlen(dst);
 	s_len = ft_strlen(src);
-	if (dstsize <= d_len || dstsize == 0)
-		return (dstsize + s_len);
 	i = 0;
-	limit = d_len;
-	while (src[i] && i < (dstsize - d_len - 1))
+	j = d_len;
+	// sizeが0より大きく、dstが終端文字を除いたsizeより小さい場合
+	if (d_len < size - 1 && size > 0)
 	{
-		dst[limit] = src[i];
-		i++;
-		limit++;
+		// srcが終端ではない、かつ、sizeの範囲内でループ
+		while (src[i] && d_len + i < size - 1)
+		{
+			dst[j] = src[i];
+			i++;
+			j++;
+		}
+		dst[j] = '\0';	
 	}
-	dst[limit] = '\0';
+	if (d_len >= size)
+		d_len = size;
 	return (d_len + s_len);
 }
