@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:55:49 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 21:59:50 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 22:19:58 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,4 @@ char	*ft_itoa(int n)
 	res[n_size] = '\0';
 	ft_fill_num(n, res, n_size - 1);
 	return (res);
-}
-
-int main(void)
-{
-	char *x = ft_itoa(-0);
-	printf("%s", x);
-	free(x);
-	return 0;
 }
