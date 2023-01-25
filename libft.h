@@ -1,6 +1,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+#define SIZE_MAX __SIZE_MAX__
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -14,7 +15,7 @@ void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	ft_putchar(char c);
-int		ft_atoi(char *str);
+int		ft_atoi(const char *nptr);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
