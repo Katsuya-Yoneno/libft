@@ -6,53 +6,71 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:55:49 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/15 15:21:09 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 21:59:50 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	cal_size_num(int n)
+// 数値を文字列に変換する関数
+
+//再帰的に配列に文字を格納
+void	ft_fill_num(long int n, char *res, int i)
 {
-	int	len;
-	
-	len = 0;
+	long int		num;
+
 	if (n < 0)
 	{
-		len++;
-		n = 0 - n;
-	}	
-	while (n != 0)
-	{
-		n = n / 10;
-		len++;
+		num = -n;
+		res[0] = '-';
 	}
-	return (len);
+	else
+		num = n;
+	if (num >= 10)
+	{
+		ft_fill_num(num / 10, res, i - 1);
+		ft_fill_num(num % 10, res, i);
+	}
+	if (num < 10)
+	{
+		num = num + '0';
+		res[i] = num;
+	}
 }
 
 char	*ft_itoa(int n)
 {
 	char	*res;
-	int		len_n;
-	int		mod;
+	int		n_size;
+	//long型でintの最大値に対応
+	int long		tmp;
 
-	len_n = cal_size_num(n);
-	res = (char *)malloc((len_n + 1) * sizeof(char));
+	tmp = n;
+	n_size = 0;
+	while (tmp != 0)
+	{
+		if (tmp < 0)
+		{
+			n_size++;
+			tmp = tmp * (-1);
+		}
+		tmp = tmp / 10;
+		n_size = n_size + 1;
+	}
+	if (n == 0)
+		n_size = 1;
+	res = (char *)malloc(n_size * sizeof(char));
 	if (!res)
 		return (0);
-	if (n < 0)
-	{
-		*res = '-';
-		res++;
-		len_n--;
-	}
-	res[len_n + 1] = '\0';
-	while (len_n > 1)
-	{
-		mod = n % 10;
-		res[len_n] = mod + '0';
-		n = n / 10;
-		len_n--;
-	}
+	res[n_size] = '\0';
+	ft_fill_num(n, res, n_size - 1);
 	return (res);
+}
+
+int main(void)
+{
+	char *x = ft_itoa(-0);
+	printf("%s", x);
+	free(x);
+	return 0;
 }

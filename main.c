@@ -2,6 +2,9 @@
 
 int main (void)
 {
-	printf("%d", ft_atoi("999"));
+	printf("%lu\n", sizeof(int));
+	printf("%lu\n", sizeof(long));
+	printf("%lu\n", sizeof(size_t));
+	printf("%lu\n", SIZE_MAX);
 	return 0;
 }
