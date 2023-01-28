@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:51:28 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 23:21:26 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/25 23:31:31 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	j;
 
+	if (!dst)
+		return (0);
 	d_len = ft_strlen(dst);
 	s_len = ft_strlen(src);
 	i = 0;
