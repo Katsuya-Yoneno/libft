@@ -2,9 +2,14 @@
 
 int main (void)
 {
-	printf("%lu\n", sizeof(int));
-	printf("%lu\n", sizeof(long));
-	printf("%lu\n", sizeof(size_t));
-	printf("%lu\n", SIZE_MAX);
+	char *s = "diddidd";
+	char c = 'i';
+	char **res = ft_split(s, c);
+	int i = 0;
+	while (res)
+	{
+		printf("%s, ", res[i]);
+		i++;
+	}
 	return 0;
 }

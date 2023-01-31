@@ -6,12 +6,13 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:42:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/09 23:00:49 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/28 22:10:18 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// 文字列s1とs2を比較する関数。一致していれば0、一致していなければ一致していない文字の差分を返す
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*s1_t;

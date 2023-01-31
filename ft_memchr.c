@@ -6,24 +6,25 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:00:24 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/09 23:00:31 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/01/28 13:56:53 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// 文字cを文字列sから検索し、見つかった場所から後ろを返す関数
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*temp;
-	size_t			count;
+	unsigned char	*tmp;
+	size_t			i;
 
-	count = 0;
-	temp = (unsigned char *)s;
-	while (count < n)
+	i = 0;
+	tmp = (unsigned char *)s;
+	while (i < n)
 	{
-		if (temp[count] == (unsigned char)c)
-			return (temp + count);
-		count++;
+		if (tmp[i] == (unsigned char)c)
+			return (tmp + i);
+		i++;
 	}
 	return (0);
 }
