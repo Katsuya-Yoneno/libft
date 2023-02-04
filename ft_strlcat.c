@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
+/*   By: kyoneno <kyoneno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:51:28 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 23:31:31 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/04 14:30:22 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	j;
 
 	if (!dst)
-		return (0);
+		return (ft_strlen(src));
 	d_len = ft_strlen(dst);
 	s_len = ft_strlen(src);
 	i = 0;

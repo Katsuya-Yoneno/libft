@@ -2,14 +2,8 @@
 
 int main (void)
 {
-	char *s = "diddidd";
-	char c = 'i';
-	char **res = ft_split(s, c);
-	int i = 0;
-	while (res)
-	{
-		printf("%s, ", res[i]);
-		i++;
-	}
+	//LONG_MIN
+	printf("my;%d\n", ft_atoi("2147483648"));
+	printf("te;%d\n", atoi("2147483648"));
 	return 0;
 }

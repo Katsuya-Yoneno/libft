@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
+/*   By: kyoneno <kyoneno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 00:34:43 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/01 00:45:48 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/04 14:28:03 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ char		**ft_split(char const *s, char c)
 			i++;
 		word_size = ft_cal_word_size(s, c, i);
 		split[j] = ft_substr(s, i, word_size);
-		printf(":%s\n", split[j]);
 		if (!split[j])
 		{
 			free(split);

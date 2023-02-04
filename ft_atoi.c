@@ -3,61 +3,87 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
+/*   By: kyoneno <kyoneno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 18:15:04 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/04 22:21:05 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "libft.h"
 
+int ft_isOverflow(const char *nptr, int isNegative, long int num, int i)
+{
+	long int ov_div;
+	int      ov_mod;
+
+	ov_div = LONG_MAX / 10;
+	ov_mod = LONG_MAX % 10;
+	if (isNegative)
+		return (0);
+	if (num > ov_div)
+		return (1);
+	if (num == ov_div)
+	{
+		i++;
+		if (nptr[i] + '0' > ov_mod)
+			return (1);
+	}
+	return (0);
+}
+
+int ft_isUnderflow(const char *nptr, int isNegative, long int num, int i)
+{
+	long int ov_div;
+	int      ov_mod;
+
+	ov_div = (-1) * (LONG_MIN / 10);
+	ov_mod = (-1) * (LONG_MIN % 10);
+	if (!isNegative)
+		return (0);
+	if (num > ov_div)
+		return (1);
+	if (num == ov_div)
+	{
+		i++;
+		if (nptr[i] + '0' > ov_mod)
+			return (1);
+	}
+	return (0);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	int	num;
-	int	counter;
+	long int	num;
+	int	        isNegative;
+	int i;
 
 	num = 0;
-	counter = 0;
+	i = 0;
+	isNegative = 0;
 	//isspace関数の既定に沿った空白文字
-	while (('\t' <= *nptr && *nptr <= '\r') || *nptr == ' ')
+	while (('\t' <= nptr[i] && nptr[i] <= '\r') || nptr[i] == ' ')
 	{
-		nptr++;
+		i++;
 	}
-	while (*nptr == '+' || *nptr == '-' )
+	while (nptr[i] == '+' || nptr[i] == '-' )
 	{
 		// 負の数なら、'-'カウンタを増やしてポインタを進める
-		if (*nptr == '-')
-			counter++;
-		nptr++;
+		if (nptr[i] == '-')
+			isNegative = 1;
+		i++;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
+	while ('0' <= nptr[i] && nptr[i] <= '9')
 	{
-		// 上位の位から埋める
-		num = num * 10 + (*nptr - '0');
-		nptr++;
+		num = num * 10 + (nptr[i] - '0');
+		if (ft_isOverflow(nptr, isNegative, num, i))
+			return ((int)LONG_MAX);
+		if (ft_isUnderflow(nptr, isNegative, num, i))
+			return ((int)LONG_MIN);
+		i++;
 	}
-	//'-'が奇数個なら負の数として判定
-	if (counter % 2 == 1)
+	if (isNegative)
 		num = 0 - num;
 	return (num);
 }
-
-
-//intの範囲を超えた引数が与えられた際の挙動は定義されていない
-// int main(void){
-// 	printf("my: %d\n", ft_atoi("9223372036854775808"));
-// 	printf("te: %d\n", atoi("9223372036854775808"));
-// 	printf("my: %d\n", ft_atoi("-9223372036854775809"));
-// 	printf("te: %d\n", atoi("-9223372036854775809"));
-// 	printf("my: %d\n", ft_atoi("18446744073709551616"));
-// 	printf("te: %d\n", atoi("18446744073709551616"));
-// 	printf("my: %d\n", ft_atoi("18446744073709551616"));
-// 	printf("te: %d\n", atoi("18446744073709551616"));
-// 	printf("my: %d\n", ft_atoi("18446744073709551614"));
-// 	printf("te: %d\n", atoi("18446744073709551614"));
-// 	printf("my: %d\n", ft_atoi("18446744073709551614"));
-// 	printf("te: %d\n", atoi("18446744073709551614"));
-// 	return 0;
-// }
