@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 23:00:58 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 23:02:08 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static int	ft_is_overflow(const char *nptr, int sign, long int num, int i)
 	if (num == ov_div)
 	{
 		i++;
-		printf("nptr[i] - '0': %d\n", nptr[i] - '0');
 		if (nptr[i] - '0' > ov_mod)
 			return (1);
 	}
