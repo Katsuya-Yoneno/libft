@@ -2,9 +2,7 @@
 
 int main (void)
 {
-	void *test;
-	//LONG_MIN+1
-	test = ft_calloc((size_t)SIZE_MAX / 10 + (size_t)1, 10);
-	free(test);
+	printf("ft_atoi:%d\n", ft_atoi("-"));
+	printf("atoi:	%d\n", atoi("-"));
 	return 0;
 }
