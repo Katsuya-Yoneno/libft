@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 15:00:57 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:05:44 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ int	ft_atoi(const char *nptr)
 	isNegative = ft_isNegative(nptr, i);
 	if (isNegative)
 		i++;
-	num = ft_add_num(nptr, num, i, isNegative);
+	if (nptr[i])
+		num = ft_add_num(nptr, num, i, isNegative);
 	if (isNegative)
 		num = 0 - num;
 	return ((int)num);
