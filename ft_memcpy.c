@@ -6,13 +6,12 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:42:19 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/28 22:16:46 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:27:18 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// srcからdestにnバイトコピーする。メモリ領域が重なるのはNG。dstへのポインタを返す。
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char	*dst_tmp;

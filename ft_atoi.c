@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 15:19:31 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:24:51 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_sign(const char *nptr, int i)
 {
-	int sign;
+	int	sign;
+
 	sign = 0;
 	while (nptr[i] == '+' || nptr[i] == '-' )
 	{
@@ -71,7 +72,7 @@ long	ft_add_num(const char *nptr, long int num, int i, int sign)
 {
 	long int	ov_div;
 
-	ov_div = LONG_MAX / 10;	
+	ov_div = LONG_MAX / 10;
 	while ('0' <= nptr[i] && nptr[i] <= '9' && nptr[i])
 	{
 		num = num * 10 + (nptr[i] - '0');
@@ -102,18 +103,11 @@ int	ft_atoi(const char *nptr)
 	while (('\t' <= nptr[i] && nptr[i] <= '\r') || nptr[i] == ' ')
 		i++;
 	sign = ft_sign(nptr, i);
-	if (sign == '+' || sign == '+')
+	if (sign == '+' || sign == '-')
 		i++;
 	if (nptr[i])
 		num = ft_add_num(nptr, num, i, sign);
 	if (sign == '-')
 		num = 0 - num;
 	return ((int)num);
-}
-
-int main (void)
-{
-	printf("ft_atoi:%d\n", ft_atoi("-"));
-	printf("atoi:	%d\n", atoi("-"));
-	return 0;
 }

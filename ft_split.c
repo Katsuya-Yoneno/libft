@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoneno <kyoneno@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 00:34:43 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/04 14:28:03 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:33:33 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_count_word(char const *s, char c)
 {
-	int i;
-	int word;
+	int	i;
+	int	word;
 
 	i = 0;
 	word = 0;
@@ -24,7 +24,6 @@ static int	ft_count_word(char const *s, char c)
 		if (s[i] != c)
 		{
 			word++;
-			// 区切り文字がなければポインタを進める
 			while (s[i] != c && s[i])
 				i++;
 		}
@@ -37,7 +36,7 @@ static int	ft_count_word(char const *s, char c)
 int	ft_cal_word_size(char const *s, char c, int i)
 {
 	int	size;
-	
+
 	size = 0;
 	while (s[i] && s[i] != c)
 	{
@@ -47,7 +46,14 @@ int	ft_cal_word_size(char const *s, char c, int i)
 	return (size);
 }
 
-char		**ft_split(char const *s, char c)
+void	ft_free_split(char **split, int j)
+{
+	if (!split[j])
+		free(split[j]);
+	return ;
+}
+
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		word;
@@ -67,83 +73,9 @@ char		**ft_split(char const *s, char c)
 			i++;
 		word_size = ft_cal_word_size(s, c, i);
 		split[j] = ft_substr(s, i, word_size);
-		if (!split[j])
-		{
-			free(split);
-			return (0);
-		}
+		ft_free_split (split, j);
 		i += word_size;
 	}
 	split[j] = 0;
 	return (split);
 }
-
-// static int	ft_count_word(char const *s, char c)
-// {
-// 	int i;
-// 	int word;
-
-// 	i = 0;
-// 	word = 0;
-// 	while (s && s[i])
-// 	{
-// 		if (s[i] != c)
-// 		{
-// 			word++;
-// 			while (s[i] != c && s[i])
-// 				i++;
-// 		}
-// 		else
-// 			i++;
-// 	}
-// 	return (word);
-// }
-
-// static int	ft_size_word(char const *s, char c, int i)
-// {
-// 	int	size;
-
-// 	size = 0;
-// 	while (s[i] != c && s[i])
-// 	{
-// 		size++;
-// 		i++;
-// 	}
-// 	return (size);
-// }
-
-// static void	ft_free(char **strs, int j)
-// {
-// 	while (j-- > 0)
-// 		free(strs[j]);
-// 	free(strs);
-// }
-
-// char		**ft_split(char const *s, char c)
-// {
-// 	int		i;
-// 	int		word;
-// 	char	**strs;
-// 	int		size;
-// 	int		j;
-
-// 	i = 0;
-// 	j = -1;
-// 	word = ft_count_word(s, c);
-// 	if (!(strs = (char **)malloc((word + 1) * sizeof(char *))))
-// 		return (NULL);
-// 	while (++j < word)
-// 	{
-// 		while (s[i] == c)
-// 			i++;
-// 		size = ft_size_word(s, c, i);
-// 		if (!(strs[j] = ft_substr(s, i, size)))
-// 		{
-// 			ft_free(strs, j);
-// 			return (NULL);
-// 		}
-// 		i += size;
-// 	}
-// 	strs[j] = 0;
-// 	return (strs);
-// }

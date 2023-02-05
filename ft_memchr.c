@@ -6,13 +6,12 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:00:24 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/28 13:56:53 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:26:38 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// 文字cを文字列sから検索し、見つかった場所から後ろを返す関数
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*tmp;

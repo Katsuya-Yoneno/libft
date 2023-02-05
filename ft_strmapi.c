@@ -6,16 +6,15 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 20:26:22 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 22:35:04 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:36:06 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//文字列sの文字それぞれに第二引数の関数fを適用する関数。fが正常に適用できた文字からのポインタを返す。
 char	*ft_strmapi(char const	*s, char (*f)(unsigned int, char))
 {
-	char	*res;
+	char				*res;
 	unsigned int		i;
 
 	i = 0;
@@ -35,10 +34,3 @@ char	*ft_strmapi(char const	*s, char (*f)(unsigned int, char))
 	res[i] = '\0';
 	return (res);
 }
-
-// int main(void){
-// 	char *s = ft_strmapi("abcdef", ft_tolower);
-// 	printf("%s\n", s);
-// 	free(s);
-// 	return 0;
-// }

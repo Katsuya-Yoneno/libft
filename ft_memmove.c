@@ -6,22 +6,15 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 22:44:21 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/29 00:52:20 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:27:30 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// 説明
-//        memmove() 関数は、メモリ領域 src からメモリ領域 dest へ n バイトをコピーする。 メモリ領域はオーバーラップしていても構いません。
-//        src のバイトがまず src と dest に重複しない一時的な配列にコピーされ、その一時的な配列から dest にバイトがコピーされます。
-//        にコピーされ、その一時配列からdestにコピーされます。
-
-// 返り値
-//        memmove()関数はdestへのポインタを返します
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	if (!dst && !src)

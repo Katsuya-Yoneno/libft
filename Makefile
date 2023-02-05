@@ -6,7 +6,7 @@
 #    By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 15:16:01 by kyoneno           #+#    #+#              #
-#    Updated: 2023/01/24 22:22:12 by kyoneno          ###   ########.fr        #
+#    Updated: 2023/02/05 15:47:44 by kyoneno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ OBJS = $(SRCS:.c=.o)
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
+
+NORM = noeminette
 
 NAME = libft.a
 
@@ -40,3 +42,6 @@ fclean:	clean
 		rm -f $(NAME)
 
 re:	fclean all
+
+norm:
+	@norminette $(SRCS)

@@ -6,15 +6,12 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:55:49 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/25 22:19:58 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 15:26:28 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// 数値を文字列に変換する関数
-
-//再帰的に配列に文字を格納
 void	ft_fill_num(long int n, char *res, int i)
 {
 	long int		num;
@@ -40,10 +37,9 @@ void	ft_fill_num(long int n, char *res, int i)
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int		n_size;
-	//long型でintの最大値に対応
-	int long		tmp;
+	char		*res;
+	int			n_size;
+	int long	tmp;
 
 	tmp = n;
 	n_size = 0;
