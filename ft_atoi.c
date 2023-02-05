@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 15:24:51 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:05:52 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_sign(const char *nptr, int i)
 	return (sign);
 }
 
-int	ft_isOverflow(const char *nptr, int sign, long int num, int i)
+int	ft_is_overflow(const char *nptr, int sign, long int num, int i)
 {
 	long int	ov_div;
 	int			ov_mod;
@@ -48,7 +48,7 @@ int	ft_isOverflow(const char *nptr, int sign, long int num, int i)
 	return (0);
 }
 
-int	ft_isUnderflow(const char *nptr, int sign, long int num, int i)
+int	ft_is_underflow(const char *nptr, int sign, long int num, int i)
 {
 	long int	ov_div;
 	int			ov_mod;
@@ -82,9 +82,9 @@ long	ft_add_num(const char *nptr, long int num, int i, int sign)
 			num = num * 10 + (nptr[i] - '0');
 			return (num);
 		}
-		if (ft_isOverflow(nptr, sign, num, i))
+		if (ft_is_overflow(nptr, sign, num, i))
 			return (LONG_MAX);
-		if (ft_isUnderflow(nptr, sign, num, i))
+		if (ft_is_underflow(nptr, sign, num, i))
 			return (LONG_MIN);
 		i++;
 	}
