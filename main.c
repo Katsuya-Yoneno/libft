@@ -2,8 +2,8 @@
 
 int main (void)
 {
-	//LONG_MIN
-	printf("my;%d\n", ft_atoi("2147483648"));
-	printf("te;%d\n", atoi("2147483648"));
+	//LONG_MIN+1
+	printf("my;%d\n", ft_atoi("9223372036854775806"));
+	printf("te;%d\n", atoi("9223372036854775806"));
 	return 0;
 }
