@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 22:42:16 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 23:00:58 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static int	ft_is_overflow(const char *nptr, int sign, long int num, int i)
 	if (num == ov_div)
 	{
 		i++;
+		printf("nptr[i] - '0': %d\n", nptr[i] - '0');
 		if (nptr[i] - '0' > ov_mod)
 			return (1);
 	}
@@ -79,6 +80,8 @@ static long	ft_add_num(const char *nptr, long int num, int i, int sign)
 			return (LONG_MAX);
 		if (ft_is_underflow(nptr, sign, num, i))
 			return (LONG_MIN);
+		if (num == ov_div)
+			return (num * 10 + (nptr[++i] - '0'));
 		i++;
 	}
 	return (num);
