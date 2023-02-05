@@ -6,13 +6,13 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 16:05:52 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:44:00 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sign(const char *nptr, int i)
+static int	ft_sign(const char *nptr, int i)
 {
 	int	sign;
 
@@ -28,7 +28,7 @@ int	ft_sign(const char *nptr, int i)
 	return (sign);
 }
 
-int	ft_is_overflow(const char *nptr, int sign, long int num, int i)
+static int	ft_is_overflow(const char *nptr, int sign, long int num, int i)
 {
 	long int	ov_div;
 	int			ov_mod;
@@ -48,7 +48,7 @@ int	ft_is_overflow(const char *nptr, int sign, long int num, int i)
 	return (0);
 }
 
-int	ft_is_underflow(const char *nptr, int sign, long int num, int i)
+static int	ft_is_underflow(const char *nptr, int sign, long int num, int i)
 {
 	long int	ov_div;
 	int			ov_mod;
@@ -68,7 +68,7 @@ int	ft_is_underflow(const char *nptr, int sign, long int num, int i)
 	return (0);
 }
 
-long	ft_add_num(const char *nptr, long int num, int i, int sign)
+static long	ft_add_num(const char *nptr, long int num, int i, int sign)
 {
 	long int	ov_div;
 

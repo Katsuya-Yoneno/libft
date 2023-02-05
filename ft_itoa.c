@@ -6,13 +6,13 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:55:49 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 15:26:28 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:44:23 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_fill_num(long int n, char *res, int i)
+static void	ft_fill_num(long int n, char *res, int i)
 {
 	long int		num;
 
