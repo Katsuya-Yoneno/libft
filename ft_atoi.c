@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 16:44:00 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 22:42:16 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ static int	ft_sign(const char *nptr, int i)
 	int	sign;
 
 	sign = 0;
-	while (nptr[i] == '+' || nptr[i] == '-' )
+	if (nptr[i] == '+' || nptr[i] == '-' )
 	{
 		if (nptr[i] == '-')
 			sign = '-';
-		if (nptr[i] == '+')
+		else
 			sign = '+';
-		i++;
 	}
 	return (sign);
 }
@@ -35,7 +34,7 @@ static int	ft_is_overflow(const char *nptr, int sign, long int num, int i)
 
 	ov_div = LONG_MAX / 10;
 	ov_mod = LONG_MAX % 10;
-	if (sign)
+	if (sign == '-')
 		return (0);
 	if (num > ov_div)
 		return (1);
@@ -55,7 +54,7 @@ static int	ft_is_underflow(const char *nptr, int sign, long int num, int i)
 
 	ov_div = (-1) * (LONG_MIN / 10);
 	ov_mod = (-1) * (LONG_MIN % 10);
-	if (!sign)
+	if (sign != '-')
 		return (0);
 	if (num > ov_div)
 		return (1);
@@ -76,12 +75,6 @@ static long	ft_add_num(const char *nptr, long int num, int i, int sign)
 	while ('0' <= nptr[i] && nptr[i] <= '9' && nptr[i])
 	{
 		num = num * 10 + (nptr[i] - '0');
-		if (num == ov_div)
-		{
-			i++;
-			num = num * 10 + (nptr[i] - '0');
-			return (num);
-		}
 		if (ft_is_overflow(nptr, sign, num, i))
 			return (LONG_MAX);
 		if (ft_is_underflow(nptr, sign, num, i))
@@ -103,7 +96,7 @@ int	ft_atoi(const char *nptr)
 	while (('\t' <= nptr[i] && nptr[i] <= '\r') || nptr[i] == ' ')
 		i++;
 	sign = ft_sign(nptr, i);
-	if (sign == '+' || sign == '-')
+	if (sign)
 		i++;
 	if (nptr[i])
 		num = ft_add_num(nptr, num, i, sign);
