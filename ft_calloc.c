@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:41:37 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 14:13:37 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 14:15:29 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t			all;
 	size_t			i;
 
-	if (!nmemb || !size)
+	if (nmemb == 0 || !size == 0)
 		return (0);
 	if (nmemb > SIZE_MAX / size)
 		return (0);
