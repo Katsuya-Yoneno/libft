@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:17:25 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/01/10 00:25:36 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 21:52:35 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
-	int		count_s1;
-	int		count_s2;
+	int		lens1;
+	int		lens2;
 
 	if (!s1 || !s2)
 		return (NULL);
-	count_s1 = ft_strlen(s1);
-	count_s2 = ft_strlen(s2);
-	str = (char *)malloc((count_s1 + count_s2 + 1) * sizeof(char));
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	str = (char *)malloc((lens1 + lens2 + 1) * sizeof(char));
 	if (!str)
 		return (0);
-	str[count_s1 + count_s2] = '\0';
-	while (count_s2 > 0)
+	str[lens1 + lens2] = '\0';
+	while (lens2 > 0)
 	{
-		str[count_s1 + count_s2 - 1] = s2[count_s2 - 1];
-		count_s2--;
+		str[lens1 + lens2 - 1] = s2[lens2 - 1];
+		lens2--;
 	}
-	while (count_s1 > 0)
+	while (lens1 > 0)
 	{
-		str[count_s1 - 1] = s1[count_s1 - 1];
-		count_s1--;
+		str[lens1 - 1] = s1[lens1 - 1];
+		lens1--;
 	}
 	return (str);
 }

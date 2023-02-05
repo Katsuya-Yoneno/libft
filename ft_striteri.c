@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 21:10:17 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 16:03:23 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 21:36:10 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
+	i = 0;
 	if (!s || !f)
 		return ;
-	i = 0;
 	while (s[i] != '\0' )
 	{
 		(*f)(i, &s[i]);
