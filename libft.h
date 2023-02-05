@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:11:17 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 16:11:18 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:34:09 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int		ft_strlen(const char *str);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	ft_putchar(char c);
 int		ft_atoi(const char *nptr);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
@@ -47,7 +46,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *str, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void	ft_striteri(char *s, void(*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_putchar_fd(char c, int fd);
