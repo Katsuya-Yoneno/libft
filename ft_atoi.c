@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 23:03:51 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 13:15:00 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 13:19:38 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,6 @@ int ft_isUnderflow(const char *nptr, int isNegative, long int num, int i)
 			return (1);
 	}
 	return (0);
-}
-
-int ft_digit(long int num)
-{
-  int count = 0;
-  if (num == 0) {
-    return (1);
-  }
-  while (num != 0) {
-    count++;
-    num /= 10;
-  }
-  return (count);
 }
 
 int	ft_atoi(const char *nptr)
