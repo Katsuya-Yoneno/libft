@@ -6,7 +6,7 @@
 /*   By: kyoneno <hjkshn0405@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 00:34:43 by kyoneno           #+#    #+#             */
-/*   Updated: 2023/02/05 16:44:59 by kyoneno          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:25:15 by kyoneno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ft_cal_word_size(char const *s, char c, int i)
 static void	ft_free_split(char **split, int j)
 {
 	if (!split[j])
-		free(split[j]);
+		free(split);
 	return ;
 }
 
